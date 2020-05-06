@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*here we put in motion the call to the server through the API*/
+
         //here we have the class that contains the url details to make the Query
         WeatherService service = API.getApi().create(WeatherService.class);
 
@@ -47,39 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-       // retrofitCall();
-
     }
 
-    /**
-     * method in charge of putting in motion the call to the server through the API
-     */
-  /*  private void retrofitCall() {
-
-        //here we have the class that contains the url details to make the Query
-        WeatherService service = API.getApi().create(WeatherService.class);
-
-        //here we choose to what city to aim to following the structure set by the API creator.
-        Call<City> call = service.receiveCity(" Madrid,es" , API.API_KEY);
-        //here we call
-        call.enqueue(new Callback<City>() {
-            @Override
-            public void onResponse(Call<City> call, Response<City> response) {
-                City cityInfo =  response.body();
-                Log.d(TAG, "onResponse: country: " + cityInfo.getCountry());
-                Log.d(TAG, "onResponse: city: " + cityInfo.getName());
-                Log.d(TAG, "onResponse: id: " + cityInfo.getId());
-                Log.d(TAG, "onResponse: code: " + cityInfo.getCode());
-            }
-
-            @Override
-            public void onFailure(Call<City> call, Throwable t) {
-                Log.i(TAG, "onFailure: error");
-            }
-        });
-
-    }
-*/
 
 }
